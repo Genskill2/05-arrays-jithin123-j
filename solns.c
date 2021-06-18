@@ -61,4 +61,5 @@ float average (int arr[], int n)  {
   float avg = (float)sum/n;
   
   return avg;
+
 }
