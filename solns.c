@@ -59,8 +59,8 @@ float average (int arr[], int n)  {
   for (int i=0;i<n;i++)
     sum=sum+arr[i];
   float avg = (float)sum/n;
-  
-  return avg;
+ 
+ return avg;
 }
 int mode(int arr[], int n){
 int maxcount=0;
