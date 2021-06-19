@@ -1,79 +1,66 @@
 /* Enter your solutions in this file */
 #include <stdio.h>
-
-
-int max (int arr[], int n)  {
-
-  for (int i=0;i<n-1;i++)  {
-    int swap = 0;
-    for (int j=0;j<n-i-1;j++) {
-      if (arr[j]>arr[j+1])  {
-        int t = arr[j+1];
-        arr[j+1] = arr[j];
-        arr[j] = t;
-        swap=1;
-      }
-    }
-    if (swap==0)
-      break;
-  }
-  int max = arr[n-1];  
-  return max;
+int max(int array[],int n)
+{
+	int max=array[0];
+	for(int i=0;i<n;i++)
+	{	if(array[i]>max)
+		max=array[i];
+	}
+	return max;
 }
-
-int min (int arr[], int n)  {
-
-  for (int i=0;i<n-1;i++)  {
-    int swap = 0;
-    for (int j=0;j<n-i-1;j++) {
-      if (arr[j]>arr[j+1])  {
-        int t = arr[j+1];
-        arr[j+1] = arr[j];
-        arr[j] = t;
-        swap=1;
-      }
-    }
-    if (swap==0)
-      break;
-  }
-  int min = arr[0];
-  return min;
+int min(int array[],int n)
+{
+	int min=array[0];
+	for(int i=0;i<n;i++)
+	{	
+		if(array[i]<min)
+		min=array[i];
+	}
+	return min;
 }
-
-float average (int arr[], int n)  {
-
-  for (int i=0;i<n-1;i++)  {
-    int swap = 0;
-    for (int j=0;j<n-i-1;j++) {
-      if (arr[j]>arr[j+1])  {
-        int t = arr[j+1];
-        arr[j+1] = arr[j];
-        arr[j] = t;
-        swap=1;
-      }
-    }
-    if (swap==0)
-      break;
-  }
-  int sum = 0;
-  for (int i=0;i<n;i++)
-    sum=sum+arr[i];
-  float avg = (float)sum/n;
- 
- return avg;
-
+float average(int array[], int n)
+{
+	int sum=0;		
+	for(int i=0;i<n;i++)
+	{	
+		sum+=array[i];
+	}
+	sum=sum/n;		
+	return sum;
+}	
+int mode(int array[], int n)
+{
+	int maxcount=0,maxvalue=0;
+	for(int i=0;i<n;i++)
+	{
+		int count=0;
+		for(int j=0;j<n;j++)
+		{
+			if(array[i]==array[j])
+				++count;
+		}
+		if(count>maxcount)
+		{
+			maxcount=count;
+			maxvalue=array[i];
+		}
+	return maxvalue;	
+	}
 }
-int mode(int arr[], int n){
-int maxcount=0;
-for(int i=0;i<n;++i){
-int counts=0;
-
-for(int j=0;j<n;++j){
-if(arr[j]==arr[i])
-++counts;
+int factors(int n, int array[])
+{
+	int j=0;
+	for(int i=2;i<=n;i++)
+	{
+		if(n%i==0)
+		{
+			array[j]=i;
+			n=n/i;
+			j++;
+			i=1;
+		}
+	}
+	return j;
 }
-if(counts>maxcount){
-maxcount=counts;
-}
-return arr[i];
-}
+  
